@@ -35,7 +35,7 @@ Follow these steps to run the project locally:
 
 1.  **Clone the repository** (or download files):
     ```bash
-    git clone [https://github.com/SEU-USUARIO/smart-compressor.git](https://github.com/SEU-USUARIO/smart-compressor.git)
+    git clone https://github.com/MrVermilion/SmartCompressor.git
     cd smart-compressor
     ```
 
@@ -100,7 +100,7 @@ Siga os passos abaixo para rodar o projeto na sua máquina:
 
 1.  **Clone o repositório** (ou baixe os arquivos):
     ```bash
-    git clone [https://github.com/SEU-USUARIO/smart-compressor.git](https://github.com/SEU-USUARIO/smart-compressor.git)
+    git clone https://github.com/MrVermilion/SmartCompressor.git
     cd smart-compressor
     ```
 
