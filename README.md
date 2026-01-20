@@ -6,12 +6,11 @@
 
 > **Select Language / Selecione o Idioma:**
 > 
-> [🇺🇸 English](#-english) | [🇧🇷 Português](#-português)
+> [🇺🇸 English](#english) | [🇧🇷 Português](#portuguese)
 
 ---
 
-<div id="english"></div>
-
+<a name="english"></a>
 ## 🇺🇸 English
 
 **Smart Compressor** is a web-based tool designed to reduce image file sizes while maintaining visual quality. Built with **Python** and **Flask**, it allows users to customize resolution and compression levels before downloading the optimized file.
