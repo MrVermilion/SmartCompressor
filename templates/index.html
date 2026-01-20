@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Compressor | Otimizador de Imagens</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="container">
+        <section class="tool-panel">
+            <header>
+                <h1>Smart Compressor</h1>
+                <p>Reduza o tamanho das suas imagens mantendo a qualidade visual com inteligência artificial.</p>
+            </header>
+
+            <form action="/comprimir" method="POST" enctype="multipart/form-data">
+
+                <div class="upload-area">
+                    <input type="file" id="file-input" name="imagem" accept="image/*" hidden required>
+                    <label for="file-input" class="upload-label" id="drop-zone">
+                        <span class="material-icons-outlined icon-large">cloud_upload</span>
+                        <h3 id="upload-text">Arraste sua imagem aqui</h3>
+                        <p id="upload-sub">ou clique para selecionar</p>
+                        <span class="file-info">Suporta JPG, PNG (Max 10MB)</span>
+                    </label>
+                </div>
+
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="resolution"><span class="material-icons-outlined">aspect_ratio</span> Resolução Max:</label>
+                        <select id="resolution" name="resolucao">
+                            <option value="original">Original (Sem redimensionar)</option>
+                            <option value="2000" selected>Full HD / 2K (2000px)</option>
+                            <option value="1080">HD Web (1080px)</option>
+                            <option value="800">Mobile / Thumbnail (800px)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="quality"><span class="material-icons-outlined">tune</span> Compressão:</label>
+                        <div class="range-container">
+                            <input type="range" id="quality" name="qualidade" min="10" max="95" value="80" oninput="document.getElementById('q-val').innerText = this.value + '%'">
+                            <span id="q-val">80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-compress">
+                    <span class="material-icons-outlined">auto_fix_high</span>
+                    Comprimir Agora
+                </button>
+
+            </form>
+            </section>
+
+        <aside class="guide-panel">
+            <h2>Como usar?</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                    <strong>Faça o Upload</strong>
+                    <p>Selecione a imagem que deseja otimizar. Ideal para fotos de perfil, banners e portfólios.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                    <strong>Ajuste as Configurações</strong>
+                    <p>Escolha a resolução máxima e o nível de compressão desejado.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                    <strong>Baixe o Resultado</strong>
+                    <p>Clique em comprimir. O download iniciará automaticamente após o processamento.</p>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <span class="material-icons-outlined">verified_user</span>
+                <p>Processamento seguro e privado. As imagens são deletadas após a conversão.</p>
+            </div>
+        </aside>
+    </main>
+
+    <script>
+        const fileInput = document.getElementById('file-input');
+        const uploadText = document.getElementById('upload-text');
+        const uploadSub = document.getElementById('upload-sub');
+        const dropZone = document.getElementById('drop-zone');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                // Muda o texto para o nome do arquivo
+                uploadText.innerText = this.files[0].name;
+                uploadSub.innerText = "Imagem selecionada! Ajuste e comprima.";
+                
+                // Muda a cor da borda para dar feedback visual
+                dropZone.style.borderColor = "#2563eb";
+                dropZone.style.backgroundColor = "#eff6ff";
+            }
+        });
+    </script>
+
+</body>
+</html>
